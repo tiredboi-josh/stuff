@@ -1,6 +1,6 @@
 #!/bin/bash
-
-iptables-save > /default.iptables.bck 
+cd ..
+iptables-save > ./default.iptables.bck
 iptables -F
 ip6tables -P INPUT DROP
 ip6tables -P OUTPUT DROP
