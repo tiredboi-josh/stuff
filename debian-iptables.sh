@@ -32,7 +32,7 @@ if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf; then
   net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf  
   service procps restart
   service procps status 
+  sleep 10
 fi
 
-sleep 30
 iptables -L
