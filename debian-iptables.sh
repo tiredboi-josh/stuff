@@ -1,6 +1,6 @@
 #!/bin/bash
-
-iptables-save > /default.iptables.bck 
+cd ..
+iptables-save > ./default.iptables.bck
 iptables -F
 ip6tables -P INPUT DROP
 ip6tables -P OUTPUT DROP
@@ -25,13 +25,14 @@ iptables -P INPUT DROP
 iptables -P OUTPUT DROP
 iptables-save > /my.iptables.bck
 
+if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf; then
+  echo "#Disable IPv6
+  net.ipv6.conf.all.disable_ipv6 = 1
+  net.ipv6.conf.default.disable_ipv6 = 1
+  net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf  
+  service procps restart
+  service procps status 
+  sleep 10
+fi
 
-echo "#Disable IPv6
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf
-
-service procps restart
-service procps status 
-sleep 30
 iptables -L

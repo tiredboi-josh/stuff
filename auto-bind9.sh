@@ -51,7 +51,7 @@ function make_configs(){
 
 
     echo "$TTL  3600
-@	IN 	SOA	 $primary_host_name.$domain_name.local. $secondaryHostName.$domain_name.local. (
+@	IN 	SOA	 $primary_host_name.$domain_name.local. $secondaryhostname.$domain_name.local. (
 			      2     ; Serial
 			 604800     ; Refresh 
 			  86400		; Retry
