@@ -23,7 +23,7 @@ iptables -A INPUT -p icmp -j ACCEPT
 iptables -P FORWARD DROP
 iptables -P INPUT DROP
 iptables -P OUTPUT DROP
-iptables-save > /my.iptables.bck
+iptables-save > /var/my.iptables.bck
 
 if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf; then
   echo "#Disable IPv6
