@@ -8,7 +8,7 @@ ip6tables -P FORWARD DROP
 iptables -A INPUT -f -j DROP
 iptables -A INPUT -p tcp ! --tcp-flags SYN,ACK SYN -m state --state NEW -j DROP
 iptables -A INPUT -p udp -m state --state NEW -m recent --set
-iptables -A INPUT -p udp -m state --state NEW -m recent --update --seconds 30 --hitcount 10 -j DROP
+iptables -A INPUT -p udp -m state --state NEW -m recent --update --seconds 10 --hitcount 20 -j DROP
 iptables -A INPUT -p udp --match multiport --dports 53,123 -j ACCEPT
 iptables -A INPUT -p udp --match multiport --sports 53,123 -j ACCEPT
 iptables -A INPUT -p tcp --match multiport --dports 53,80,443,8089,9997 -j ACCEPT
