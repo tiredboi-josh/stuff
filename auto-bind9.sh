@@ -127,7 +127,7 @@ version none;
 		8.8.4.4;
 };
 	dnssec-enable yes;
-	dnssec-validation auto;
+	dnssec-validation yes;
 	
 	auth-nxdomain no; 	#conform to RFC1035
 	listen-on port 53 {allow;};
